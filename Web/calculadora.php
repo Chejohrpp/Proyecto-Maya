@@ -9,9 +9,11 @@ date_default_timezone_set('US/Central');
 $fecha_consultar = date("Y-m-d");
 }
 
-$nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
+$nahualArray = include 'backend/buscar/conseguir_nahual_nombre.php';
+$nahual = $nahualArray[0];
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
+$haab = $haab[0];
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
 $cholquij = $nahual." ". strval($energia);
 
