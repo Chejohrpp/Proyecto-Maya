@@ -36,6 +36,20 @@ h1, h2, h3, h4, h5, h6 {
   color: #2dc997;
 }
 
+.p-inicio-index{
+  margin: 16px 0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.contain-imgs-index-inicio{
+  margin: 1em 0;
+}
+
+.img-desing-for-inicio{
+  width:100px;
+  height:100px;
+}
 
 .back-to-top {
   position: fixed;

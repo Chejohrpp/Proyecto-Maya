@@ -59,12 +59,14 @@ $cholquij = $nahual." ". strval($energia);
       <h1><br><br>Bienvenido al Tiempo Maya</h1>
       <div id='formulario' style="padding: 15px; width: auto;">
       <h5 style="color: whitesmoke;">
-        <b>Calendario Haab</b> : <?php echo isset($haab) ? $haab : ''; ?> 
+        <b>Calendario Haab</b> : <p class="p-inicio-index"> <?php echo isset($haab) ? $haab : ''; ?> </p>
+        </h5>
+        <div class="contain-imgs-index-inicio">
         <!-- Es para el uinal -->
           <?php
             echo "<a href=models/paginaModeloElemento.php?elemento=uinal#" . $just_haab . ">";
           ?>
-          <img src="<?php echo isset($haab_img) ? $haab_img : ''; ?>" 
+          <img class="img-desing-for-inicio" src="<?php echo isset($haab_img) ? $haab_img : ''; ?>" 
             alt="<?php echo isset($haab) ? $haab : 'img'; ?>"> 
             <?php 
               echo "</a>";
@@ -73,19 +75,21 @@ $cholquij = $nahual." ". strval($energia);
             <?php
               echo "<a href=models/paginaModeloElemento.php?elemento=kin#" . $name_kin . ">";
             ?>
-            <img src="<?php echo isset($path_kin) ? $path_kin : ''; ?>" 
+            <img class="img-desing-for-inicio" src="<?php echo isset($path_kin) ? $path_kin : ''; ?>" 
               alt="<?php echo isset($name_kin) ? $name_kin : 'img'; ?>"> 
               <?php 
                 echo "</a>";
               ?>
-      </h5>
+      </div>
       <h5 style="color: whitesmoke;">
-        <b>Calendario Cholquij</b> : <?php echo isset($cholquij) ? $cholquij : ''; ?>
+        <b>Calendario Cholquij</b> :  <p class="p-inicio-index"> <?php echo isset($cholquij) ? $cholquij : ''; ?> </p>
+      </h5>
+      <div class="contain-imgs-index-inicio">
         <!-- Es para el nahual -->
         <?php
             echo "<a href=models/paginaModeloElemento.php?elemento=nahual#" . $nah . ">";
           ?>
-          <img src="<?php echo isset($nahual_path) ? $nahual_path : ''; ?>" 
+          <img class="img-desing-for-inicio" src="<?php echo isset($nahual_path) ? $nahual_path : ''; ?>" 
             alt="<?php echo isset($nah) ? $nah : 'img'; ?>"> 
           <?php 
             echo "</a>";
@@ -94,15 +98,14 @@ $cholquij = $nahual." ". strval($energia);
           <?php
             echo "<a href=models/paginaModeloElemento.php?elemento=energia#" . $name_energy . ">";
           ?>
-          <img src="<?php echo isset($path_energy) ? $path_energy : ''; ?>" 
+          <img class="img-desing-for-inicio" src="<?php echo isset($path_energy) ? $path_energy : ''; ?>" 
             alt="<?php echo isset($name_energy) ? $name_energy : 'img'; ?>"> 
           <?php 
             echo "</a>";
           ?>
-
-      </h5>
+          </div>
       <h5 style="color: whitesmoke;">
-        Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?>
+       <b> Cuenta Larga </b> : <p class="p-inicio-index"> <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?> </p>
       </h5>
       <label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
   </div>
