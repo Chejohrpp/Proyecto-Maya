@@ -10,7 +10,7 @@ $fecha_consultar = date("Y-m-d");
 
 
 $nahualArray = include 'backend/buscar/conseguir_nahual_nombre.php';
-$nahual = "FFF";
+$nahual = "";
 $nahual_path = "src/imagenesNahuales/1.jpg";
 if (is_array($nahualArray)) {
   $nahual = $nahualArray[0];
@@ -20,10 +20,17 @@ if (is_array($nahualArray)) {
 $nah = $nahual;
 
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
+$Query_energy = $conn->query("SELECT nombre,ruta FROM energia WHERE id=".$energia." LIMIT 1;");
+$row_energy = mysqli_fetch_assoc($Query_energy);
+$name_energy = $row_energy['nombre'];
+$path_energy = $row_energy['ruta'];
+
 $haabArray = include 'backend/buscar/conseguir_uinal_nombre.php';
 $haab = $haabArray[0];
 $haab_img= $haabArray[1];   //"./imgs/Calendario Haab/17.png";
 $just_haab = $haabArray[2];
+$name_kin = $haabArray[3];
+$path_kin = $haabArray[4];
 
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
 $cholquij = $nahual." ". strval($energia);
@@ -52,7 +59,8 @@ $cholquij = $nahual." ". strval($energia);
       <h1><br><br>Bienvenido al Tiempo Maya</h1>
       <div id='formulario' style="padding: 15px; width: auto;">
       <h5 style="color: whitesmoke;">
-        Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?> 
+        <b>Calendario Haab</b> : <?php echo isset($haab) ? $haab : ''; ?> 
+        <!-- Es para el uinal -->
           <?php
             echo "<a href=models/paginaModeloElemento.php?elemento=uinal#" . $just_haab . ">";
           ?>
@@ -61,17 +69,37 @@ $cholquij = $nahual." ". strval($energia);
             <?php 
               echo "</a>";
             ?>
+            <!-- Es para el kin -->
+            <?php
+              echo "<a href=models/paginaModeloElemento.php?elemento=kin#" . $name_kin . ">";
+            ?>
+            <img src="<?php echo isset($path_kin) ? $path_kin : ''; ?>" 
+              alt="<?php echo isset($name_kin) ? $name_kin : 'img'; ?>"> 
+              <?php 
+                echo "</a>";
+              ?>
       </h5>
       <h5 style="color: whitesmoke;">
-        Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?>
+        <b>Calendario Cholquij</b> : <?php echo isset($cholquij) ? $cholquij : ''; ?>
+        <!-- Es para el nahual -->
         <?php
             echo "<a href=models/paginaModeloElemento.php?elemento=nahual#" . $nah . ">";
           ?>
           <img src="<?php echo isset($nahual_path) ? $nahual_path : ''; ?>" 
-            alt="<?php echo is_array($nah) ? $nah : 'img'; ?>"> 
+            alt="<?php echo isset($nah) ? $nah : 'img'; ?>"> 
           <?php 
             echo "</a>";
           ?>
+          <!-- Es para la energia -->
+          <?php
+            echo "<a href=models/paginaModeloElemento.php?elemento=energia#" . $name_energy . ">";
+          ?>
+          <img src="<?php echo isset($path_energy) ? $path_energy : ''; ?>" 
+            alt="<?php echo isset($name_energy) ? $name_energy : 'img'; ?>"> 
+          <?php 
+            echo "</a>";
+          ?>
+
       </h5>
       <h5 style="color: whitesmoke;">
         Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?>

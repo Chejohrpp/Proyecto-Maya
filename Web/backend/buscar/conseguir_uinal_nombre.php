@@ -33,13 +33,17 @@ if ($reversa) {
     }
 }
 
+$Query_kin = $conn->query("SELECT nombre,ruta FROM kin WHERE id=".$dia." ;");
+$row_kin = mysqli_fetch_assoc($Query_kin);
+$name_kin = $row_kin['nombre'];
+$path_kin = $row_kin['ruta'];
 
 $Query = $conn->query("SELECT nombre,ruta FROM uinal WHERE idweb=".$mes." ;");
 $row = mysqli_fetch_assoc($Query);
 $just_uinal = $row['nombre'];
 $uinal = $row['nombre']." ".strval($dia);
 $ruta = $row['ruta']." ";
-$array = [$uinal,$ruta,$just_uinal];
+$array = [$uinal,$ruta,$just_uinal,$name_kin,$path_kin];
 return $array//.strval($dia);
 
 ?>

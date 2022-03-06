@@ -12,7 +12,7 @@ $datos = [];
 if ($table == 'nahual') {
     $datos = $conn->query("SELECT nombre,significado,htmlCodigo,rutaEscritorio FROM tiempo_maya." . $table . ";");
 }
-elseif ($table == 'uinal') {
+elseif ($table == 'uinal' || $table == 'energia'|| $table == 'kin') {
     $datos = $conn->query("SELECT nombre,significado,htmlCodigo,ruta FROM tiempo_maya." . $table . ";");
 }
 else {
@@ -74,9 +74,9 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempo_maya.pagina WHERE nom
                 <?php foreach($datos as $dato){
                    $stringPrint = "<h4 id=".$dato['nombre'].">".$dato['nombre']."</h4>";
                    if ($table == 'nahual') {
-                    $stringPrint.= "<img src='.".$dato['rutaEscritorio']."' alt='".$dato['nombre']."'>";
-                   } elseif ($table == 'uinal') {
-                    $stringPrint.= "<img src='.".$dato['ruta']."' alt='".$dato['nombre']."'>";
+                    $stringPrint.= "<img class='img-dato' src='.".$dato['rutaEscritorio']."' alt='".$dato['nombre']."'>";
+                   } elseif ($table == 'uinal' || $table == 'energia' || $table == 'kin') {
+                    $stringPrint.= "<img class='img-dato' src='.".$dato['ruta']."' alt='".$dato['nombre']."'>";
                    }
                    $stringPrint.="<h5>Significado</h5> <p>".$dato['significado']."</p>";
                    $stringPrint.="<p>".$dato['htmlCodigo']."</p> <hr>";
